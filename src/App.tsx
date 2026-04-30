@@ -10,26 +10,27 @@ import {
 } from 'lucide-react';
 
 const Header = () => (
-  <header id="header" className="w-full bg-[#F5F5F4] border-b border-border-subtle sticky top-0 z-50">
-    <div className="section-container h-24 flex justify-between items-center">
-      <div id="logo" className="text-2xl font-serif font-bold text-text-primary">
+  <header id="header" role="banner" className="w-full bg-[#F5F5F4] border-b border-border-subtle sticky top-0 z-50">
+    <nav aria-label="Main navigation" className="section-container h-24 flex justify-between items-center">
+      <a href="#" id="logo" className="text-2xl font-serif font-bold text-text-primary" aria-label="DocJournal Home">
         DocJournal
-      </div>
-      <div id="actions" className="hidden md:flex gap-8 items-center">
+      </a>
+      <div id="actions" className="hidden md:flex gap-8 items-center" role="menubar">
         {['Home', 'Contact'].map((item) => (
           <a
             key={item}
             href={item === 'Home' ? '#' : `#${item.toLowerCase()}`}
             className="text-text-secondary hover:text-text-primary transition-colors text-sm font-medium"
+            role="menuitem"
           >
             {item}
           </a>
         ))}
       </div>
-      <button id="mobile-menu" className="md:hidden text-text-secondary p-2">
+      <button id="mobile-menu" className="md:hidden text-text-secondary p-2" aria-label="Open navigation menu">
         <Menu size={24} />
       </button>
-    </div>
+    </nav>
   </header>
 );
 
@@ -42,10 +43,10 @@ const Hero = () => (
       className="max-w-[800px]"
     >
       <h1 className="text-4xl md:text-5xl lg:text-6xl text-text-primary leading-[1.1] mb-8">
-        Professional Project Documentation for Final Year Excellence.
+        Professional Final Year Project Documentation Service for Academic Excellence
       </h1>
       <p className="text-lg md:text-xl text-text-secondary leading-relaxed mb-12 max-w-[700px] mx-auto">
-        A contemplative approach to academic writing. We distill your raw research into structured, pristine documentation that commands academic respect, ensuring a stress-free submission process.
+        Expert academic documentation service that transforms your raw research into structured, university-standard project reports. Get plagiarism-checked, professionally formatted documentation with print-ready PDF delivery — stress-free submission guaranteed.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
         <a href="#pricing" className="btn-secondary w-full sm:w-auto px-10 py-5 text-center">
@@ -62,7 +63,7 @@ const Features = () => (
       <div className="mb-16 max-w-[680px]">
         <h2 className="text-3xl text-text-primary mb-6">The Standard of Clarity</h2>
         <p className="text-lg text-text-secondary">
-          We reject superficial formatting in favor of deep structural integrity. Every document is crafted to meet rigorous academic standards while maintaining an elegant, distraction-free aesthetic.
+          We reject superficial formatting in favor of deep structural integrity. Every document is crafted to meet rigorous university academic standards while maintaining an elegant, distraction-free aesthetic.
         </p>
       </div>
       
@@ -71,20 +72,20 @@ const Features = () => (
           {
             icon: <FileText className="text-text-tertiary" size={32} />,
             title: "Contemplative Quality",
-            description: "Content takes precedence over decoration. We ensure your methodology and findings are presented with absolute clarity, allowing your hard work to speak for itself without structural noise."
+            description: "Content takes precedence over decoration. We ensure your research methodology and findings are presented with absolute clarity, allowing your hard work to speak for itself without structural noise."
           },
           {
             icon: <Landmark className="text-text-tertiary" size={32} />,
-            title: "Academic Standards",
+            title: "University Academic Standards",
             description: "Strict adherence to university guidelines, including precise citations, formalized abstract construction, and logical chapter flow. We format so you don't have to."
           },
           {
             icon: <CheckCircle2 className="text-text-tertiary" size={32} />,
-            title: "Stress-Free Submission",
-            description: "Hand over your chaotic notes, drafts, and data. Receive a meticulously typeset, ready-to-print final PDF and Word document well before your deadline."
+            title: "Stress-Free Project Submission",
+            description: "Hand over your chaotic notes, drafts, and data. Receive a meticulously typeset, ready-to-print final PDF and Word document well before your submission deadline."
           }
         ].map((feature, idx) => (
-          <motion.div 
+          <motion.article 
             key={idx}
             whileHover={{ backgroundColor: "var(--color-surface-muted)" }}
             className="bg-surface p-12 flex flex-col gap-6"
@@ -94,7 +95,7 @@ const Features = () => (
             <p className="text-text-secondary leading-relaxed">
               {feature.description}
             </p>
-          </motion.div>
+          </motion.article>
         ))}
       </div>
     </div>
@@ -106,15 +107,15 @@ const Pricing = () => (
     <span className="text-[11px] font-semibold text-text-tertiary uppercase tracking-[0.2em] mb-4 block">
       Transparent Investment
     </span>
-    <h2 className="text-3xl text-text-primary mb-12">The Complete Document</h2>
+    <h2 className="text-3xl text-text-primary mb-12">Complete Final Year Project Documentation Package</h2>
     
     <div className="max-w-2xl mx-auto bg-surface-muted border border-border-subtle p-12 md:p-16">
       <div className="flex flex-col items-center mb-10">
         <div className="flex items-baseline gap-2">
           <span className="text-xl text-text-secondary font-serif">Rs.</span>
-          <span className="text-7xl font-sans font-bold text-text-primary">400</span>
+          <span className="text-7xl font-sans font-bold text-text-primary" itemProp="price">400</span>
         </div>
-        <p className="text-sm text-text-tertiary mt-2">Per complete final year project documentation</p>
+        <p className="text-sm text-text-tertiary mt-2">Per complete final year project documentation package</p>
       </div>
       
       <ul className="text-left space-y-4 mb-12 border-t border-border-subtle pt-8 max-w-md mx-auto">
@@ -145,7 +146,7 @@ const StructuralElegance = () => (
         <div className="aspect-[3/4] bg-surface p-4 border border-border-subtle shadow-sm overflow-hidden flex items-center justify-center">
           <img 
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6CorsGnNoM64kARmgx2RMEt5opb6phhM3dFwFilLdo6jU2V9l5-EkDiRyKXGKt7qsMPLOeNhQwQN1Ztymnl1iLkO4kBUZay5wFJYeemm5LbsybWQa_xuLoasv8Fpvxwu4OCjWZopu7u0nk4utHmrpDayqur3QiYMdAyAGkYtoHtFlHN_yVLpLVi7JtHuz26ep_XmjS4yRvbVaa1k1EthDkCziaNnGv7cJxHd3Uzqo6ZbSCde6grrXwPBWuO3Pvim2a4dWh3TBRWo" 
-            alt="Minimalist Document Setup" 
+            alt="Professional academic document with structured formatting and clean typography for final year project reports" 
             className="w-full h-full object-cover grayscale opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
             referrerPolicy="no-referrer"
           />
@@ -154,9 +155,9 @@ const StructuralElegance = () => (
       </div>
       
       <div id="content" className="max-w-[580px]">
-        <h2 className="text-3xl text-text-primary mb-6">Structural Elegance</h2>
+        <h2 className="text-3xl text-text-primary mb-6">Structural Elegance in Academic Documentation</h2>
         <p className="text-lg text-text-secondary leading-relaxed mb-12">
-          A well-documented project does not scream for attention; it guides the reader's eye naturally through the narrative of your research. We employ classic typographic principles to ensure legibility and professional weight.
+          A well-documented project does not scream for attention; it guides the reader's eye naturally through the narrative of your research. We employ classic typographic principles and information architecture to ensure legibility and professional weight in every project report.
         </p>
         
         <div className="border-t border-border-subtle">
@@ -176,9 +177,9 @@ const Contact = () => (
   <section id="contact" className="section-container py-section-desktop border-t border-border-subtle">
     <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
       <div>
-        <h2 className="text-3xl text-text-primary mb-6">Begin Your Project</h2>
+        <h2 className="text-3xl text-text-primary mb-6">Begin Your Final Year Project Documentation</h2>
         <p className="text-lg text-text-secondary mb-8">
-          Ready to elevate your research? Contact us to discuss your documentation requirements or start the commission process.
+          Ready to elevate your research documentation? Contact us to discuss your final year project documentation requirements or start the commission process.
         </p>
         <div className="space-y-4">
           <div className="flex flex-col">
@@ -230,12 +231,12 @@ const Contact = () => (
 );
 
 const Footer = () => (
-  <footer id="footer" className="w-full bg-surface-raised border-t border-border-medium py-20">
+  <footer id="footer" role="contentinfo" className="w-full bg-surface-raised border-t border-border-medium py-20">
     <div className="section-container flex flex-col md:flex-row justify-between gap-12">
       <div className="space-y-6">
         <div className="text-xl font-serif font-bold text-text-primary">DocJournal</div>
         <p className="text-sm italic text-text-secondary font-serif">
-          © 2024 The Scholar's Journal. Crafted for clarity.
+          © 2025 DocJournal by KINETLABS. Professional academic documentation crafted for clarity.
         </p>
       </div>
     </div>
