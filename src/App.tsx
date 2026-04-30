@@ -15,15 +15,16 @@ const Header = () => (
       <div id="logo" className="text-2xl font-serif font-bold text-text-primary">
         DocJournal
       </div>
-      <nav id="desktop-nav" className="hidden md:flex gap-8 items-center">
+      <div id="actions" className="hidden md:flex gap-8 items-center">
         {['Home', 'Contact'].map((item) => (
-          <a key={item} href={item === 'Home' ? '#' : `#${item.toLowerCase()}`} className="text-text-secondary hover:text-text-primary transition-colors text-sm font-medium">
+          <a
+            key={item}
+            href={item === 'Home' ? '#' : `#${item.toLowerCase()}`}
+            className="text-text-secondary hover:text-text-primary transition-colors text-sm font-medium"
+          >
             {item}
           </a>
         ))}
-      </nav>
-      <div id="actions" className="hidden md:block">
-        <button className="btn-primary">Start Project</button>
       </div>
       <button id="mobile-menu" className="md:hidden text-text-secondary p-2">
         <Menu size={24} />
@@ -50,9 +51,9 @@ const Hero = () => (
         <button className="btn-primary w-full sm:w-auto px-10 py-5">
           Commission Document
         </button>
-        <button className="btn-secondary w-full sm:w-auto px-10 py-5">
+        <a href="#pricing" className="btn-secondary w-full sm:w-auto px-10 py-5 text-center">
           View Pricing
-        </button>
+        </a>
       </div>
     </motion.div>
   </section>
