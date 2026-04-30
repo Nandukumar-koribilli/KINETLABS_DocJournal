@@ -48,9 +48,6 @@ const Hero = () => (
         A contemplative approach to academic writing. We distill your raw research into structured, pristine documentation that commands academic respect, ensuring a stress-free submission process.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-        <button className="btn-primary w-full sm:w-auto px-10 py-5">
-          Commission Document
-        </button>
         <a href="#pricing" className="btn-secondary w-full sm:w-auto px-10 py-5 text-center">
           View Pricing
         </a>
@@ -134,9 +131,9 @@ const Pricing = () => (
         ))}
       </ul>
       
-      <button className="btn-primary w-full max-w-md py-5 text-sm">
+      <a href="#contact" className="btn-primary w-full max-w-md py-5 text-sm text-center">
         Begin Process
-      </button>
+      </a>
     </div>
   </section>
 );
@@ -191,11 +188,17 @@ const Contact = () => (
         </div>
       </div>
       
-      <form onSubmit={(e) => e.preventDefault()} className="space-y-6">
+      <form
+        action="mailto:kinetlabs24.7@gmail.com"
+        method="post"
+        encType="text/plain"
+        className="space-y-6"
+      >
         <div className="space-y-2">
           <label className="text-[11px] font-semibold uppercase tracking-widest text-text-secondary">Full Name</label>
           <input 
             type="text" 
+            name="name"
             placeholder="Academic Name"
             className="w-full bg-surface border border-border-medium px-4 py-3 outline-none focus:border-text-primary transition-colors text-sm"
           />
@@ -204,6 +207,7 @@ const Contact = () => (
           <label className="text-[11px] font-semibold uppercase tracking-widest text-text-secondary">Email</label>
           <input 
             type="email" 
+            name="email"
             placeholder="your@email.com"
             className="w-full bg-surface border border-border-medium px-4 py-3 outline-none focus:border-text-primary transition-colors text-sm"
           />
@@ -212,6 +216,7 @@ const Contact = () => (
           <label className="text-[11px] font-semibold uppercase tracking-widest text-text-secondary">Initial Notes</label>
           <textarea 
             placeholder="Tell us about your research domain..."
+            name="notes"
             rows={4}
             className="w-full bg-surface border border-border-medium px-4 py-3 outline-none focus:border-text-primary transition-colors text-sm resize-none"
           />
@@ -232,13 +237,6 @@ const Footer = () => (
         <p className="text-sm italic text-text-secondary font-serif">
           © 2024 The Scholar's Journal. Crafted for clarity.
         </p>
-      </div>
-      <div className="flex flex-wrap gap-x-12 gap-y-4">
-        {['Terms of Service', 'Privacy Policy', 'Institutional Access', 'Academic Integrity'].map((item) => (
-          <a key={item} href="#" className="text-xs text-text-secondary hover:text-text-primary underline-offset-4 hover:underline transition-all font-medium">
-            {item}
-          </a>
-        ))}
       </div>
     </div>
   </footer>
